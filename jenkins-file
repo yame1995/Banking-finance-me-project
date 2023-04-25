@@ -36,6 +36,12 @@ pipeline {
             }
         }
     }
+     stage('Push Image to DockerHub') {
+      steps {
+        sh 'docker push fatima021/finance021:latest'
+            }
+    }
+    
 
         
         }
