@@ -29,7 +29,13 @@ pipeline {
         sh 'docker build -t fatima021/finance021:latest .'
             }
     }
-
+     stage('DockerLogin') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'docker-login', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+            }
+        }
+    }
 
         
         }
