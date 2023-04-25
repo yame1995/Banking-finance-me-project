@@ -16,11 +16,16 @@ pipeline {
         git branch: 'main', url: 'https://github.com/Fatima-Ishrath021/Banking-finance-project.git'
             }
     }
+    }
     
     stage('Package the Application') {
       steps {
         echo " Packaing the Application"
         sh 'mvn clean package'
-            }
-    }
+            }}
+            
+ 
+ 
+ 
+ }
 }
