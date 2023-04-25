@@ -25,7 +25,11 @@ pipeline {
             }
     }
  
- 
+ stage('Docker Image Creation') {
+      steps {
+        sh 'docker build -t fatima021/finance021:latest .'
+            }
+    }
  
  
         }
