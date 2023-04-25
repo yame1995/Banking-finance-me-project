@@ -41,8 +41,18 @@ pipeline {
         sh 'docker push fatima021/finance021:latest'
             }
     }
+       stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
+            steps {
+                dir('my-serverfiles'){
+                sh 'sudo chmod 600 fatima.pem'
+                sh 'terraform init'
+                sh 'terraform validate'
+                sh 'terraform apply --auto-approve'
+                }
+            }
+        }
     
-
-        
+    
+ 
         }
         }
