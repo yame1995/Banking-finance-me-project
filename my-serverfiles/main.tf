@@ -6,7 +6,8 @@ resource "aws_instance" "test-server" {
   connection {
     type     = "ssh"
     user     = "ec2-user"
-    private_key = file("./newkey.pem")
+    #private_key = file("./newkey.pem")
+    private_key = file("newkey.pem")
     timeout = "3m"
     agent = false
     host     = self.public_ip
