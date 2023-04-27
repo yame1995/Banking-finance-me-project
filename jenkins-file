@@ -11,7 +11,7 @@ pipeline {
       stage('CheckOut') {
         steps {
           echo 'Checkout the source code from GitHub'
-          git branch: 'main', url: 'https://github.com/Fatima-Ishrath021/Banking-finance-project1.git'
+          git branch: 'main', url: 'https://github.com/Fatima-Ishrath021/Banking-finance-project01.git'
               } }
       
       stage('Package the Application') {
@@ -21,7 +21,7 @@ pipeline {
         }}
     stage('Publish Reports using HTML') {
       steps {
-      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/finance-project1/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/finance-project01/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             }
     }
  
