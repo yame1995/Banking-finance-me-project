@@ -1,13 +1,13 @@
 resource "aws_instance" "test-server" {
-  ami           = "ami-0c768662cc797cd75" 
+  ami           = "ami-0b08bfc6ff7069aff" 
   instance_type = "t2.micro" 
-  key_name = "newkey"
-  vpc_security_group_ids= ["sg-0315c97a013200234"]
+  key_name = "yamuna"
+  vpc_security_group_ids= ["sg-0d79d8cacae87b89e"]
   connection {
     type     = "ssh"
     user     = "ec2-user"
-    #private_key = file("./newkey.pem")
-    private_key = file("newkey.pem")
+    #private_key = file("./yamuna.pem")
+    private_key = file("yamuna.pem")
     timeout = "3m"
     agent = false
     host     = self.public_ip
@@ -22,6 +22,6 @@ resource "aws_instance" "test-server" {
         command = " echo ${aws_instance.test-server.public_ip} > inventory "
   }
    provisioner "local-exec" {
-  command = "ansible-playbook /var/lib/jenkins/workspace/finance-project01/my-serverfiles/finance-playbook.yml "
+  command = "ansible-playbook /var/lib/jenkins/workspace/financeme-project/my-serverfiles/finance-playbook.yml "
   } 
 }
