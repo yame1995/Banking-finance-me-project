@@ -35,7 +35,11 @@ pipeline {
             }
         }
     }
-       
+       stage('Push Image to DockerHub') {
+      steps {
+        sh 'docker push fatima021/yamuna-finance-me:latest'
+            }
+    }
       
       
       
